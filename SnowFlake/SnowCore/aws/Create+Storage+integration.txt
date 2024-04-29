@@ -1,0 +1,13 @@
+// Create storage integration object
+// need to have the bucket and also a role for snowflake via iam
+create or replace storage integration s3_int
+  TYPE = EXTERNAL_STAGE
+  STORAGE_PROVIDER = S3
+  ENABLED = TRUE 
+  STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::264444178311:role/snowflakeaccessrole'
+  STORAGE_ALLOWED_LOCATIONS = ('s3://snowflakejfkbucket2/csv/', 's3://snowflakejfkbucket2/json/')
+   COMMENT = 'This an optional comment' ;
+   
+ snowflakeaccessrole  
+// See storage integration properties to fetch external_id so we can update it in S3
+DESC integration s3_int;

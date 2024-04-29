@@ -1,0 +1,13 @@
+
+USE DATABASE DEMO_DB;
+-- create integration object that contains the access information
+CREATE STORAGE INTEGRATION azure_integration
+  TYPE = EXTERNAL_STAGE
+  STORAGE_PROVIDER = AZURE
+  ENABLED = TRUE
+  AZURE_TENANT_ID = '84a66631-a8e1-4816-a202-1b09799f1a2d'
+  STORAGE_ALLOWED_LOCATIONS = ('azure://jfksnowstore.blob.core.windows.net/csv/', 'azure://jfksnowstore.blob.core.windows.net/json/');
+
+  
+-- Describe integration object to provide access
+DESC STORAGE integration azure_integration;

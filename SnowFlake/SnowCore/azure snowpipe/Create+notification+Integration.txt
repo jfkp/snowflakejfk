@@ -1,0 +1,17 @@
+
+CREATE OR REPLACE NOTIFICATION INTEGRATION snowpipe_event
+  ENABLED = true
+  TYPE = QUEUE
+  NOTIFICATION_PROVIDER = AZURE_STORAGE_QUEUE
+  AZURE_STORAGE_QUEUE_PRIMARY_URI = 'https://<your-container-url>'
+  AZURE_TENANT_ID = '<your-tenant-id>';
+  
+ // Need to create queue in storage account before 
+ // and the event notification
+ // Also add role assignment on Azure AD for snowflake user
+  -- Register Integration
+  
+  DESC notification integration snowpipe_event;
+  
+  
+  

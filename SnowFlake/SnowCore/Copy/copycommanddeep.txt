@@ -1,0 +1,12 @@
+COPY INTO TABLE
+FROM externalstage
+FILES = ('fic1,fic2) // or regular expression for files pattern='.*Orders.*'
+FILE_FORMAT = fileformatname
+copyoptions
+ON_ERROR = CONTINUE | ABORT | SKIP_FILE
+VALIDATION_MODE = RETURN_ERRORS | RETURN_N_ROWS
+SIZE_LIMIT= INT
+RETURN_FAILED_ONLY= TRUE | FALSE
+TRUNCATECOLUMNS
+FORCE = TRUE
+
